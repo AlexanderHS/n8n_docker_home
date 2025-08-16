@@ -16,9 +16,8 @@ services:
     ports:
       - "443:443"
     environment:
-      - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
       - CF_API_EMAIL=${CF_API_EMAIL}
-      - CF_ZONE_API_TOKEN=${CF_DNS_API_TOKEN}
+      - CF_API_KEY=${CF_API_KEY}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./letsencrypt:/letsencrypt
