@@ -17,7 +17,7 @@ services:
       - "443:443"
     environment:
       - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
-      - CLOUDFLARE_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
+      - CF_API_EMAIL=${CF_API_EMAIL}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./letsencrypt:/letsencrypt
@@ -37,7 +37,6 @@ services:
     image: n8nio/n8n:latest
     container_name: n8n
     restart: always
-    command: start
     environment:
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
