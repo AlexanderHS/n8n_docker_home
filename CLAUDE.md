@@ -16,19 +16,29 @@ The setup is configured for production deployment with:
 - Basic authentication enabled for n8n
 - Custom domain routing (`n8n.2ho.me`)
 
-## Common Development Commands
+## Development Workflow
 
-### Starting the Stack
+**IMPORTANT**: This is a remote deployment setup. Do NOT run Docker commands locally.
+
+### Workflow Process:
+1. Make configuration changes to files in this repository
+2. Commit and push changes to Git
+3. User manually pulls changes on remote server and restarts services
+4. User reports back deployment results
+
+### Commands for Remote Server (User runs these):
+
+#### Starting the Stack
 ```bash
 docker-compose up -d
 ```
 
-### Stopping the Stack
+#### Stopping the Stack
 ```bash
 docker-compose down
 ```
 
-### Viewing Logs
+#### Viewing Logs
 ```bash
 # All services
 docker-compose logs -f
@@ -39,7 +49,7 @@ docker-compose logs -f postgres
 docker-compose logs -f traefik
 ```
 
-### Rebuilding Services
+#### Rebuilding Services
 ```bash
 docker-compose pull
 docker-compose up -d --force-recreate
