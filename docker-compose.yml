@@ -12,6 +12,7 @@ services:
       - "--entrypoints.websecure.address=:443"
       - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
       - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
+      - "--certificatesresolvers.cloudflare.acme.dnschallenge.resolvers=1.1.1.1:53"
       - "--certificatesresolvers.cloudflare.acme.email=alexhamiltonsmith@gmail.com"
       - "--certificatesresolvers.cloudflare.acme.storage=/letsencrypt/acme.json"
     ports:
@@ -48,7 +49,7 @@ services:
       - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=admin
       - N8N_BASIC_AUTH_PASSWORD=admin123
-      - N8N_HOST=n8n.2ho.me
+      - N8N_HOST=n8n.ad.2ho.me
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
       - NODE_ENV=production
@@ -56,7 +57,7 @@ services:
       - ./data:/home/node/.n8n
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.n8n.rule=Host(`n8n.2ho.me`)"
+      - "traefik.http.routers.n8n.rule=Host(`n8n.ad.2ho.me`)"
       - "traefik.http.routers.n8n.entrypoints=websecure"
       - "traefik.http.routers.n8n.tls.certresolver=cloudflare"
     depends_on:
